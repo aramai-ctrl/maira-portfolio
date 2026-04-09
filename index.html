@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maira López · Diseñadora Gráfica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #0B1929;
+    --blue:   #1454B8;
+    --blue2:  #2770E8;
+    --sky:    #5B9FFF;
+    --gold:   #F5C842;
+    --cream:  #FFF9F0;
+    --white:  #FFFFFF;
+    --muted:  rgba(255,255,255,0.5);
+    --card:   rgba(255,255,255,0.06);
+    --border: rgba(255,255,255,0.1);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    min-height: 100vh;
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── BG EFFECTS ── */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -200px; left: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(20,84,184,0.35) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -150px; right: -150px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(245,200,66,0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── WRAPPER ── */
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 48px 20px 80px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .avatar-ring {
+    display: inline-block;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--blue2), var(--gold));
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  .avatar {
+    width: 88px; height: 88px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+    border: 3px solid var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 36px;
+  }
+
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    line-height: 1.1;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+  .header h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .header .role {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .header .bio {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    max-width: 360px;
+    margin: 0 auto 20px;
+  }
+
+  .location-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .location-badge span { color: var(--sky); }
+
+  /* ── SKILL PILLS ── */
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 40px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .pill {
+    background: rgba(91,159,255,0.12);
+    border: 1px solid rgba(91,159,255,0.25);
+    color: var(--sky);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+    padding-left: 2px;
+  }
+
+  /* ── CTA BUTTON ── */
+  .btn-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue2) 100%);
+    border-radius: 16px;
+    padding: 18px 22px;
+    text-decoration: none;
+    color: var(--white);
+    margin-bottom: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: fadeUp 0.6s 0.15s ease both;
+    box-shadow: 0 8px 32px rgba(20,84,184,0.35);
+  }
+  .btn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(20,84,184,0.5);
+  }
+  .btn-cta .btn-left {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .btn-icon {
+    width: 40px; height: 40px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .btn-cta h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .btn-cta p {
+    font-size: 11px;
+    color: rgba(255,255,255,0.65);
+  }
+  .btn-arrow {
+    font-size: 18px;
+    opacity: 0.6;
+  }
+
+  /* ── LINK CARD ── */
+  .link-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 20px;
+    text-decoration: none;
+    color: var(--white);
+    margin-bottom: 10px;
+    transition: background 0.2s, transform 0.2s, border-color 0.2s;
+  }
+  .link-card:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.2);
+    transform: translateY(-1px);
+  }
+  .link-card .lc-left {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .lc-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px;
+    flex-shrink: 0;
+  }
+  .lc-icon.blue  { background: rgba(39,112,232,0.2); }
+  .lc-icon.gold  { background: rgba(245,200,66,0.15); }
+  .lc-icon.green { background: rgba(46,204,113,0.15); }
+  .lc-icon.pink  { background: rgba(255,107,107,0.15); }
+  .link-card h3 {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .link-card p {
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .lc-arrow {
+    font-size: 14px;
+    opacity: 0.35;
+  }
+
+  /* ── PROJECT CARDS ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .proj-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 16px;
+    text-decoration: none;
+    color: var(--white);
+    transition: background 0.2s, transform 0.2s;
+    display: block;
+  }
+  .proj-card:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+  }
+  .proj-emoji { font-size: 24px; margin-bottom: 10px; display: block; }
+  .proj-card h3 {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .proj-card p {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .proj-tag {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--sky);
+    background: rgba(91,159,255,0.1);
+    padding: 3px 8px;
+    border-radius: 8px;
+  }
+
+  /* ── STATS ── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+    margin-bottom: 32px;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 12px;
+    text-align: center;
+  }
+  .stat-val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 10px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  /* ── SECTION GROUPS ── */
+  .section-group {
+    margin-bottom: 32px;
+    animation: fadeUp 0.6s 0.25s ease both;
+  }
+
+  /* ── CONTACT ROW ── */
+  .contact-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .contact-btn:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-1px);
+  }
+  .contact-btn .cb-icon {
+    font-size: 18px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    margin-top: 48px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+  }
+  .footer strong { color: rgba(255,255,255,0.4); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity:0; transform: translateY(20px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+
+  .section-group:nth-child(1) { animation-delay: 0.15s; }
+  .section-group:nth-child(2) { animation-delay: 0.22s; }
+  .section-group:nth-child(3) { animation-delay: 0.28s; }
+  .section-group:nth-child(4) { animation-delay: 0.34s; }
+  .section-group:nth-child(5) { animation-delay: 0.40s; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="avatar-ring">
+      <div class="avatar">✦</div>
+    </div>
+    <h1>Maira <em>López</em></h1>
+    <div class="role">Diseñadora Gráfica &amp; Dev Web</div>
+    <p class="bio">Creo identidades visuales, contenido para redes y sitios web para marcas y emprendimientos.</p>
+    <div class="location-badge">📍 <span>Luque, Paraguay</span> </div>
+  </div>
+
+  <!-- PILLS -->
+  <div class="pills">
+    <span class="pill">Social Media</span>
+    <span class="pill">Branding</span>
+    <span class="pill">Campañas</span>
+    <span class="pill">Packaging</span>
+    <span class="pill">Editorial</span>
+    <span class="pill">HTML/CSS</span>
+    <span class="pill">Angular</span>
+    <span class="pill">Node.js</span>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-val">5+</div>
+      <div class="stat-label">Años de experiencia</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">8+</div>
+      <div class="stat-label">Marcas y clientes</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">50+</div>
+      <div class="stat-label">Piezas producidas</div>
+    </div>
+  </div>
+
+  <!-- CTA PORTAFOLIO -->
+  <div class="section-group">
+    <div class="section-label">📁 Portafolio</div>
+    <a href="Portafolio_Maira_Lopez.pdf" class="btn-cta" download>
+      <div class="btn-left">
+        <div class="btn-icon">📄</div>
+        <div>
+          <h3>Ver Portafolio Completo</h3>
+          <p>Social Media · Branding · Editorial · Web</p>
+        </div>
+      </div>
+      <span class="btn-arrow">↓</span>
+    </a>
+  </div>
+
+  <!-- SERVICIOS -->
+  <div class="section-group">
+    <div class="section-label">🎨 Servicios</div>
+    <a href="mailto:milimartinetti@gmail.com?subject=Consulta%20Diseño%20Gráfico" class="link-card">
+      <div class="lc-left">
+        <div class="lc-icon blue">🎨</div>
+        <div>
+          <h3>Diseño Gráfico</h3>
+          <p>Flyers, branding, campañas, editorial, packaging</p>
+        </div>
+      </div>
+      <span class="lc-arrow">→</span>
+    </a>
+    <a href="mailto:milimartinetti@gmail.com?subject=Consulta%20Social%20Media" class="link-card">
+      <div class="lc-left">
+        <div class="lc-icon gold">📱</div>
+        <div>
+          <h3>Contenido para Redes</h3>
+          <p>Social media, historias, feed de Instagram</p>
+        </div>
+      </div>
+      <span class="lc-arrow">→</span>
+    </a>
+    <a href="mailto:milimartinetti@gmail.com?subject=Consulta%20Desarrollo%20Web" class="link-card">
+      <div class="lc-left">
+        <div class="lc-icon green">💻</div>
+        <div>
+          <h3>Desarrollo Web</h3>
+          <p>Landing pages, diseño responsive, mantenimiento</p>
+        </div>
+      </div>
+      <span class="lc-arrow">→</span>
+    </a>
+    <a href="mailto:milimartinetti@gmail.com?subject=Consulta%20Edición%20de%20Video" class="link-card">
+      <div class="lc-left">
+        <div class="lc-icon pink">🎬</div>
+        <div>
+          <h3>Edición de Video</h3>
+          <p>Reels, videos cortos para redes sociales</p>
+        </div>
+      </div>
+      <span class="lc-arrow">→</span>
+    </a>
+  </div>
+
+  <!-- CONTACTO -->
+  <div class="section-group">
+    <div class="section-label">📬 Contacto directo</div>
+    <div class="contact-row">
+      <a href="https://wa.me/595991432723?text=Hola%20Maira%2C%20vi%20tu%20portafolio%20y%20me%20interesa%20contactarte" class="contact-btn">
+        <span class="cb-icon">💬</span> WhatsApp
+      </a>
+      <a href="mailto:milimartinetti@gmail.com" class="contact-btn">
+        <span class="cb-icon">✉️</span> Email
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">
+    Hecho con ✦ por <strong>Maira López</strong> · Luque, Paraguay · 2025
+  </div>
+
+</div>
+</body>
+</html>
